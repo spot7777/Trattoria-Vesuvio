@@ -5,17 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forma e Colore Napoli | Hairstyling & Beauty</title>
     
-    <!-- FAVICON -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="favicon.png">
-    <meta name="apple-mobile-web-app-title" content="Forma&Colore">
-
-    <!-- Font e Icone Esterne -->
+    <!-- Font e Icone -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        /* RESET GENERALE */
+        /* RESET */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { font-family: 'Montserrat', sans-serif; color: #333; line-height: 1.6; background-color: #fff; }
@@ -29,7 +24,7 @@
 
         .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
-        /* HEADER & NAV */
+        /* HEADER */
         header {
             background: var(--bianco);
             height: 90px;
@@ -69,9 +64,7 @@
             font-weight: 600; 
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: 0.3s;
         }
-        .nav-menu a:hover { color: var(--oro); }
 
         .btn-chiama {
             background: var(--oro);
@@ -82,11 +75,9 @@
             font-size: 0.8rem;
             text-transform: uppercase;
             transition: 0.3s;
-            border: 1px solid var(--oro);
         }
-        .btn-chiama:hover { background: transparent; color: var(--oro); }
 
-        /* HERO SECTION */
+        /* HERO */
         .hero {
             height: 80vh;
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=1600&auto=format&fit=crop');
@@ -103,7 +94,7 @@
         .hero-h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 10px; }
         .hero-p { font-size: 1.2rem; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; }
 
-        /* SERVIZI */
+        /* SEZIONE SERVIZI */
         .section { padding: 80px 0; }
         .section-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 50px; }
         
@@ -119,11 +110,11 @@
             text-align: center;
             transition: 0.3s;
         }
-        .service-card:hover { transform: translateY(-5px); background: #f0ebe4; }
+
         .service-card i { font-size: 2rem; color: var(--oro); margin-bottom: 20px; }
         .service-card h3 { margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* SEDI E MAPPE */
+        /* MAPPE E SEDI (FIXED) */
         .locations-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -135,7 +126,6 @@
             background: white;
             border: 1px solid #eee;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            overflow: hidden;
         }
 
         .map-container {
@@ -147,8 +137,8 @@
 
         .location-content { padding: 30px; }
         .location-content h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 15px; color: var(--oro); }
-        .location-content p { margin-bottom: 10px; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; }
-        .location-content i { color: var(--oro); width: 20px; text-align: center; }
+        .location-content p { margin-bottom: 8px; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; }
+        .location-content i { color: var(--oro); width: 20px; }
 
         /* WHATSAPP FLOAT */
         .whatsapp-float {
@@ -179,8 +169,7 @@
             text-align: center;
         }
 
-        .footer-logo { font-family: 'Playfair Display', serif; color: white; font-size: 2rem; margin-bottom: 20px; text-transform: uppercase; }
-        .footer-logo span { color: var(--oro); }
+        .footer-logo { font-family: 'Playfair Display', serif; color: white; font-size: 2rem; margin-bottom: 20px; }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
@@ -193,7 +182,7 @@
 </head>
 <body>
 
-    <!-- BOTTONE WHATSAPP -->
+    <!-- WHATSAPP -->
     <a href="https://wa.me/390815781738" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
@@ -221,36 +210,37 @@
         </div>
     </section>
 
-    <!-- SEZIONE SERVIZI -->
+    <!-- SERVIZI -->
     <section id="servizi" class="section container">
-        <h2 class="section-title">I Nostri Servizi</h2>
+        <h2 class="section-title">Eccellenza nella Bellezza</h2>
         <div class="services-grid">
             <div class="service-card">
                 <i class="fas fa-cut"></i>
                 <h3>Hairstyling</h3>
-                <p>Specialisti in Degradé Joelle, tagli visagistici e trattamenti alla cheratina per capelli sani e luminosi.</p>
+                <p>Specialisti in Degradé Joelle, tagli visagistici e trattamenti alla cheratina.</p>
             </div>
             <div class="service-card">
                 <i class="fas fa-spa"></i>
                 <h3>Estetica</h3>
-                <p>Trattamenti viso e corpo all'avanguardia, massaggi relax e percorsi benessere personalizzati.</p>
+                <p>Trattamenti viso/corpo avanzati, massaggi e benessere totale.</p>
             </div>
             <div class="service-card">
                 <i class="fas fa-hand-sparkles"></i>
                 <h3>Nails & PMU</h3>
-                <p>Manicure russa, semipermanente e trucco semipermanente (Microblading) per valorizzare i tuoi lineamenti.</p>
+                <p>Manicure professionale e trucco semipermanente per uno sguardo perfetto.</p>
             </div>
         </div>
     </section>
 
-    <!-- SEZIONE SEDI E MAPPE -->
+    <!-- SEDI (MAPPE CORRETTE) -->
     <section id="sedi" class="section" style="background-color: #fafafa;">
         <div class="container">
-            <h2 class="section-title">Le Nostre Sedi</h2>
+            <h2 class="section-title">Vieni a trovarci</h2>
             <div class="locations-grid">
                 
                 <!-- SEDE VOMERO -->
                 <div class="location-box">
+                    <!-- URL MAPS CORRETTO -->
                     <iframe class="map-container" 
                         src="https://maps.google.com/maps?q=Via%20Consalvo%20Carelli%2033%20Napoli&t=&z=15&ie=UTF8&iwloc=&output=embed">
                     </iframe>
@@ -264,6 +254,7 @@
 
                 <!-- SEDE CHIAIA -->
                 <div class="location-box">
+                    <!-- URL MAPS CORRETTO -->
                     <iframe class="map-container" 
                         src="https://maps.google.com/maps?q=Via%20Francesco%20Giordani%2038%20Napoli&t=&z=15&ie=UTF8&iwloc=&output=embed">
                     </iframe>
@@ -283,7 +274,7 @@
     <footer id="contatti">
         <div class="container">
             <div class="footer-logo">Forma<span>&</span>Colore</div>
-            <p>Napoli - Dal 1996, la tua oasi di bellezza e stile.</p>
+            <p>Napoli - Dal 1996 professionisti della bellezza.</p>
             <div style="margin: 30px 0; font-size: 1.5rem;">
                 <a href="#" style="color:white; margin: 0 15px;"><i class="fab fa-instagram"></i></a>
                 <a href="#" style="color:white; margin: 0 15px;"><i class="fab fa-facebook"></i></a>
