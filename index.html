@@ -3,285 +3,355 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forma e Colore Napoli | Hairstyling & Beauty</title>
+    <title>Forma e Colore Napoli | Scegli il Tuo Stile | Hair & Beauty</title>
     
-    <!-- Font e Icone -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* RESET */
+        :root {
+            --gold: #c5a059;
+            --gold-dark: #a68549;
+            --black: #121212;
+            --dark-grey: #2c2c2c;
+            --light-grey: #f8f8f8;
+            --white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        /* Base Styles */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Montserrat', sans-serif; color: #333; line-height: 1.6; background-color: #fff; }
-
-        :root {
-            --oro: #b89c7d;
-            --nero: #1a1a1a;
-            --beige: #f9f5f1;
-            --bianco: #ffffff;
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            color: var(--black); 
+            line-height: 1.7; 
+            background-color: var(--white);
+            overflow-x: hidden;
         }
+
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; font-weight: 700; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
 
         .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        .section { padding: 100px 0; }
+        .center { text-align: center; }
 
-        /* HEADER */
-        header {
-            background: var(--bianco);
-            height: 90px;
-            display: flex;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            font-weight: 700;
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            background: var(--gold);
+            color: var(--white);
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--nero);
-            text-decoration: none;
+            font-size: 0.85rem;
+            border: 2px solid var(--gold);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .btn:hover { background: transparent; color: var(--gold); transform: translateY(-3px); }
+        .btn-outline { background: transparent; color: var(--black); border-color: var(--black); }
+        .btn-outline:hover { background: var(--black); color: var(--white); }
+
+        /* WhatsApp Floating */
+        .wa-float {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #25d366; color: white;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            z-index: 9999;
         }
 
-        .logo span { color: var(--oro); font-weight: 400; }
-
-        .nav-menu { display: flex; list-style: none; gap: 25px; }
-        .nav-menu a { 
-            text-decoration: none; 
-            color: var(--nero); 
-            font-size: 0.75rem; 
-            font-weight: 600; 
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        /* Header */
+        header {
+            position: fixed; top: 0; width: 100%; height: 90px;
+            background: rgba(255,255,255,0.98);
+            display: flex; align-items: center; z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
         }
+        nav { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; letter-spacing: 2px; text-transform: uppercase; }
+        .logo span { color: var(--gold); }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+        .nav-links a:hover { color: var(--gold); }
 
-        .btn-chiama {
-            background: var(--oro);
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-
-        /* HERO */
+        /* Hero Section */
         .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=1600&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            margin-top: 90px;
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; color: var(--white); padding-top: 90px;
         }
+        .hero h1 { font-size: 4rem; margin-bottom: 20px; line-height: 1.1; }
+        .hero p { font-size: 1.2rem; font-weight: 300; max-width: 700px; margin: 0 auto 40px; letter-spacing: 1px; }
 
-        .hero-h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 10px; }
-        .hero-p { font-size: 1.2rem; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; }
+        /* Stats Bar */
+        .stats-bar { background: var(--black); color: var(--white); padding: 60px 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center; }
+        .stat-item h3 { color: var(--gold); font-size: 2.5rem; margin-bottom: 5px; }
+        .stat-item p { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; font-weight: 500; }
 
-        /* SEZIONE SERVIZI */
-        .section { padding: 80px 0; }
-        .section-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 50px; }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+        /* Services Grid */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 50px; }
+        .service-card { 
+            background: var(--light-grey); padding: 50px 40px; 
+            text-align: center; transition: var(--transition);
+            border-bottom: 3px solid transparent;
         }
+        .service-card:hover { background: var(--white); box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-bottom-color: var(--gold); transform: translateY(-10px); }
+        .service-card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 25px; }
+        .service-card h3 { font-size: 1.6rem; margin-bottom: 15px; text-transform: uppercase; }
 
-        .service-card {
-            background: var(--beige);
-            padding: 40px;
-            text-align: center;
-            transition: 0.3s;
-        }
+        /* Team Section */
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 50px; }
+        .team-member { text-align: center; }
+        .member-img { width: 100%; height: 450px; background: #eee; margin-bottom: 25px; object-fit: cover; filter: grayscale(100%); transition: var(--transition); }
+        .team-member:hover .member-img { filter: grayscale(0); }
+        .team-member h3 { font-size: 1.8rem; color: var(--gold); }
+        .team-member span { text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; font-weight: 700; color: #888; }
+        .team-member p { margin-top: 15px; font-style: italic; font-size: 0.9rem; }
 
-        .service-card i { font-size: 2rem; color: var(--oro); margin-bottom: 20px; }
-        .service-card h3 { margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+        /* Side Sections */
+        .quality-banner { background-color: #f9f5f1; }
+        .flex-side { display: flex; align-items: center; flex-wrap: wrap; gap: 50px; }
+        .side-content, .side-img { flex: 1; min-width: 300px; }
+        .side-img img { box-shadow: 20px 20px 0 var(--gold); }
 
-        /* MAPPE E SEDI (FIXED) */
-        .locations-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
-        }
+        .promo-box { background: var(--black); color: var(--white); padding: 80px; text-align: center; position: relative; }
+        .promo-box h2 { font-size: 3rem; margin-bottom: 20px; color: var(--gold); }
 
-        .location-box {
-            background: white;
-            border: 1px solid #eee;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
+        /* Gallery */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 40px; }
+        .gallery-item { height: 300px; overflow: hidden; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .gallery-item:hover img { transform: scale(1.1); }
 
-        .map-container {
-            width: 100%;
-            height: 350px;
-            border: 0;
-            display: block;
-        }
+        /* Contact Section */
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 50px; }
+        .location-info { padding: 40px; background: var(--light-grey); }
+        .location-info h3 { color: var(--gold); margin-bottom: 20px; font-size: 1.8rem; }
+        .contact-item { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .contact-item i { color: var(--gold); width: 20px; }
+        iframe { width: 100%; height: 300px; border: 0; margin-top: 20px; }
 
-        .location-content { padding: 30px; }
-        .location-content h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 15px; color: var(--oro); }
-        .location-content p { margin-bottom: 8px; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; }
-        .location-content i { color: var(--oro); width: 20px; }
+        /* Footer */
+        footer { background: var(--black); color: rgba(255,255,255,0.6); padding: 80px 0 40px; text-align: center; }
+        .footer-logo { font-size: 2.5rem; color: var(--white); margin-bottom: 20px; }
+        .social-links { display: flex; justify-content: center; gap: 25px; margin-bottom: 40px; }
+        .social-links a { font-size: 1.8rem; color: var(--white); transition: var(--transition); }
+        .social-links a:hover { color: var(--gold); transform: translateY(-5px); }
 
-        /* WHATSAPP FLOAT */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25d366;
-            color: white;
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            z-index: 2000;
-            text-decoration: none;
-            font-size: 32px;
-            transition: 0.3s;
-        }
-        .whatsapp-float:hover { transform: scale(1.1); }
-
-        /* FOOTER */
-        footer {
-            background: var(--nero);
-            color: #888;
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .footer-logo { font-family: 'Playfair Display', serif; color: white; font-size: 2rem; margin-bottom: 20px; }
-
-        /* RESPONSIVE */
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-menu, .btn-chiama { display: none; }
-            .hero-h1 { font-size: 2.2rem; }
-            .section-title { font-size: 2rem; }
-            .locations-grid { grid-template-columns: 1fr; }
+            .nav-links, .btn-header { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1rem; }
+            .section { padding: 60px 0; }
         }
     </style>
 </head>
 <body>
 
-    <!-- WHATSAPP -->
-    <a href="https://wa.me/390815781738" class="whatsapp-float" target="_blank">
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/390815781738" class="wa-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- HEADER -->
+    <!-- Header -->
     <header>
         <div class="container">
             <nav>
                 <a href="#" class="logo">Forma<span>&</span>Colore</a>
-                <ul class="nav-menu">
+                <ul class="nav-links">
                     <li><a href="#servizi">Servizi</a></li>
-                    <li><a href="#sedi">Le Sedi</a></li>
-                    <li><a href="#contatti">Contatti</a></li>
+                    <li><a href="#perche">Esperienza</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#sedi">Sedi</a></li>
                 </ul>
-                <a href="tel:0815781738" class="btn-chiama">Prenota ora</a>
+                <div style="display:flex; align-items:center; gap:20px;">
+                    <a href="tel:0815781738" class="btn btn-header" style="padding: 10px 25px; font-size: 0.7rem;">Prenota ora</a>
+                </div>
             </nav>
         </div>
     </header>
 
-    <!-- HERO -->
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-h1">Forma e Colore</h1>
-            <p class="hero-p">Hair & Beauty Experience a Napoli</p>
-        </div>
-    </section>
-
-    <!-- SERVIZI -->
-    <section id="servizi" class="section container">
-        <h2 class="section-title">Eccellenza nella Bellezza</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <i class="fas fa-cut"></i>
-                <h3>Hairstyling</h3>
-                <p>Specialisti in Degradé Joelle, tagli visagistici e trattamenti alla cheratina.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-spa"></i>
-                <h3>Estetica</h3>
-                <p>Trattamenti viso/corpo avanzati, massaggi e benessere totale.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-hand-sparkles"></i>
-                <h3>Nails & PMU</h3>
-                <p>Manicure professionale e trucco semipermanente per uno sguardo perfetto.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEDI (MAPPE CORRETTE) -->
-    <section id="sedi" class="section" style="background-color: #fafafa;">
         <div class="container">
-            <h2 class="section-title">Vieni a trovarci</h2>
-            <div class="locations-grid">
-                
-                <!-- SEDE VOMERO -->
-                <div class="location-box">
-                    <!-- URL MAPS CORRETTO -->
-                    <iframe class="map-container" 
-                        src="https://maps.google.com/maps?q=Via%20Consalvo%20Carelli%2033%20Napoli&t=&z=15&ie=UTF8&iwloc=&output=embed">
-                    </iframe>
-                    <div class="location-content">
-                        <h3>Vomero</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Via Consalvo Carelli, 33 - Napoli</p>
-                        <p><i class="fas fa-phone"></i> 081 578 1738</p>
-                        <p><i class="fas fa-envelope"></i> info@formaecolorenapoli.com</p>
-                    </div>
-                </div>
-
-                <!-- SEDE CHIAIA -->
-                <div class="location-box">
-                    <!-- URL MAPS CORRETTO -->
-                    <iframe class="map-container" 
-                        src="https://maps.google.com/maps?q=Via%20Francesco%20Giordani%2038%20Napoli&t=&z=15&ie=UTF8&iwloc=&output=embed">
-                    </iframe>
-                    <div class="location-content">
-                        <h3>Chiaia</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Via Francesco Giordani, 38 - Napoli</p>
-                        <p><i class="fas fa-phone"></i> 081 578 1738</p>
-                        <p><i class="fas fa-envelope"></i> info@formaecolorenapoli.com</p>
-                    </div>
-                </div>
-
+            <p style="text-transform: uppercase; letter-spacing: 4px; color: var(--gold); font-weight: 600; margin-bottom: 10px;">Eccellenza Sartoriale a Napoli</p>
+            <h1>Scegli il tuo stile.</h1>
+            <p>Oltre 20 anni di innovazione costante nell'Hair Styling. Esaltiamo la tua bellezza naturale con consulenze d'immagine su misura.</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="#sedi" class="btn">Prenota Appuntamento</a>
+                <a href="#servizi" class="btn btn-outline" style="color: white; border-color: white;">Scopri i Servizi</a>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer id="contatti">
+    <!-- Stats -->
+    <div class="stats-bar">
+        <div class="container stats-grid">
+            <div class="stat-item"><h3>20+</h3><p>Anni di Storia</p></div>
+            <div class="stat-item"><h3>100%</h3><p>Qualità Garantita</p></div>
+            <div class="stat-item"><h3>3</h3><p>Top Stylists</p></div>
+            <div class="stat-item"><h3>2</h3><p>Saloni Esclusivi</p></div>
+        </div>
+    </div>
+
+    <!-- Servizi -->
+    <section id="servizi" class="section">
         <div class="container">
-            <div class="footer-logo">Forma<span>&</span>Colore</div>
-            <p>Napoli - Dal 1996 professionisti della bellezza.</p>
-            <div style="margin: 30px 0; font-size: 1.5rem;">
-                <a href="#" style="color:white; margin: 0 15px;"><i class="fab fa-instagram"></i></a>
-                <a href="#" style="color:white; margin: 0 15px;"><i class="fab fa-facebook"></i></a>
+            <div class="center">
+                <h2 class="section-title">L'Arte dei Nostri Trattamenti</h2>
+                <p style="max-width: 600px; margin: 0 auto;">Metodo, competenza e i migliori prodotti per un risultato d'eccellenza.</p>
             </div>
-            <p style="font-size: 0.7rem; letter-spacing: 1px; color: #555;">&copy; 2024 FORMA E COLORE NAPOLI. TUTTI I DIRITTI RISERVATI.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-scissors"></i>
+                    <h3>Hair Cutting</h3>
+                    <p>Tagli professionali che seguono l'armonia del viso e le ultime tendenze moda.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-palette"></i>
+                    <h3>Hair Coloring</h3>
+                    <p>Colorazioni professionali brillanti, tecniche di schiaritura naturali e Degradé Joelle.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-magic"></i>
+                    <h3>Make Up</h3>
+                    <p>Look personalizzati per ogni occasione, dal quotidiano al grande evento.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-gem"></i>
+                    <h3>Nails Styling</h3>
+                    <p>Cura professionale di mani e piedi con stili e decorazioni esclusive.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-sparkles"></i>
+                    <h3>Beauty Styles</h3>
+                    <p>Trattamenti viso e corpo per un benessere completo e una pelle radiosa.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-star"></i>
+                    <h3>Look Su Misura</h3>
+                    <p>Consulenza d'immagine completa per creare lo stile che più ti appartiene.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="section">
+        <div class="container">
+            <div class="center">
+                <h2 class="section-title">Il Nostro Team</h2>
+                <p>Professionisti appassionati al tuo servizio.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format" alt="Agostino" class="member-img">
+                    <span>Hair Stylist | Makeup Artist | Look Maker</span>
+                    <h3>Agostino</h3>
+                    <p>Creativo e professionale, esperto nella trasformazione totale del look.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?q=80&w=400&auto=format" alt="Genny" class="member-img">
+                    <span>Hair Stylist | Makeup Artist | Tattoo Maker</span>
+                    <h3>Genny</h3>
+                    <p>Il punto di riferimento per chi cerca esperienza e tecnica impeccabile.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format" alt="Maurizio" class="member-img">
+                    <span>Professional Hair Stylist</span>
+                    <h3>Maurizio</h3>
+                    <p>La precisione eccellente e la tecnica sartoriale applicata ad ogni taglio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sedi -->
+    <section id="sedi" class="section" style="background: var(--light-grey);">
+        <div class="container">
+            <div class="center">
+                <h2 class="section-title">Le Nostre Sedi</h2>
+                <p>Ti aspettiamo nei nostri saloni a Napoli per un'esperienza indimenticabile.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="location-info">
+                    <h3>Vomero</h3>
+                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Via Consalvo Carelli, 33 - Napoli</div>
+                    <div class="contact-item"><i class="fas fa-phone"></i> 081 578 1738</div>
+                    <div class="contact-item"><i class="fas fa-envelope"></i> info@formaecolorenapoli.com</div>
+                    <iframe src="https://maps.google.com/maps?q=Via%20Consalvo%20Carelli%2033%20Napoli&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+                </div>
+                <div class="location-info">
+                    <h3>Chiaia</h3>
+                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Via Francesco Giordani, 38 - Napoli</div>
+                    <div class="contact-item"><i class="fas fa-phone"></i> 081 663 3592</div>
+                    <div class="contact-item"><i class="fas fa-envelope"></i> info@formaecolorenapoli.com</div>
+                    <iframe src="https://maps.google.com/maps?q=Via%20Francesco%20Giordani%2038%20Napoli&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo font-serif">Forma<span>&</span>Colore</div>
+            <p style="margin-bottom: 30px;">Qualità, Metodo e Professionalità da oltre 20 anni.</p>
+            
+            <!-- SOCIAL LINKS AGGIORNATI -->
+            <div class="social-links">
+                <a href="https://www.facebook.com/FormaeColoreNapoli" target="_blank" title="Seguici su Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/formaecolore/" target="_blank" title="Seguici su Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@formaecolore_napoli" target="_blank" title="Seguici su TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+
+            <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4);">
+                &copy; 2024 Forma e Colore Napoli. Tutti i diritti riservati. <br>
+                Sede Vomero: 081 578 1738 | Sede Chiaia: 081 663 3592
+            </p>
         </div>
     </footer>
 
+    <script>
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.height = '70px';
+                header.style.backgroundColor = 'rgba(255,255,255,1)';
+            } else {
+                header.style.height = '90px';
+                header.style.backgroundColor = 'rgba(255,255,255,0.98)';
+            }
+        });
+    </script>
 </body>
 </html>
